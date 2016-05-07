@@ -7,6 +7,9 @@ nimbus:
     - "6627:6627"
   external_links:
     - storm_zookeeper_1:zk
+    - cassandra1:cassandra
+  volumes:
+    - "/Users/ratchasak/Workspace/hospital/refrigensor/storm:/home/storm/app"
 supervisor:
   command: --daemon supervisor logviewer
   image: fhuz/docker-storm
@@ -20,6 +23,7 @@ supervisor:
     - nimbus:nimbus
   external_links:
     - storm_zookeeper_1:zk
+    - cassandra1:cassandra
 ui:
   command: --daemon ui
   image: fhuz/docker-storm
@@ -29,3 +33,4 @@ ui:
     - nimbus:nimbus
   external_links:
     - storm_zookeeper_1:zk
+    - cassandra1:cassandra
