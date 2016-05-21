@@ -1,6 +1,7 @@
 nimbus:
   command: --daemon nimbus drpc
-  image: fhuz/docker-storm
+  image: ratchasak_ranron/docker-storm
+  restart: always
   ports:
     - "3773:3773"
     - "3772:3772"
@@ -10,9 +11,11 @@ nimbus:
     - cassandra1:cassandra
   volumes:
     - "/Users/ratchasak/Workspace/hospital/refrigensor/storm:/home/storm/app"
+
 supervisor:
   command: --daemon supervisor logviewer
-  image: fhuz/docker-storm
+  image: ratchasak_ranron/docker-storm
+  restart: always
   ports:
     - "8000:8000"
     - "6700:6700"
@@ -24,9 +27,11 @@ supervisor:
   external_links:
     - storm_zookeeper_1:zk
     - cassandra1:cassandra
+
 ui:
   command: --daemon ui
-  image: fhuz/docker-storm
+  image: ratchasak_ranron/docker-storm
+  restart: always
   ports:
     - "8080:8080"
   links:
