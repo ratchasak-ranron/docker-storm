@@ -33,7 +33,7 @@ ui:
   image: ratchasak_ranron/docker-storm
   restart: always
   ports:
-    - "8080:8080"
+    - "8090:8080"
   links:
     - nimbus:nimbus
   external_links:
