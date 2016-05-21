@@ -10,7 +10,7 @@ nimbus:
     - storm_zookeeper_1:zk
     - cassandra1:cassandra
   volumes:
-    - "/Users/ratchasak/Workspace/hospital/refrigensor/storm:/home/storm/app"
+    - "/home/storm/app"
 
 supervisor:
   command: --daemon supervisor logviewer
